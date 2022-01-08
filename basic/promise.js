@@ -23,6 +23,11 @@ let doWork = function (job, timer) {
 // 刷牙 --> 吃早餐 --> 寫功課
 let dt = new Date();
 console.log(`Start ${dt.toISOString()}`);
+// let work1Promise = doWork("刷牙", 2000);
+// work1Promise.then((result) => {
+//   let dt = new Date();
+//   console.log(`${result} at ${dt.toISOString()}`);
+// });
 
 doWork("刷牙", 2000)
   .then((result) => {
