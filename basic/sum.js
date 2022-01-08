@@ -41,30 +41,31 @@ function sumReducer(n){
 
 console.log("reducer sum(5) ==> " + sumReducer(5));
 
-// 壓力測試一:
+// 效能測試一:
 console.time("for");
 for (let i = 1; i <= 10000; i++){
     sum(10000);
 };
 console.timeEnd("for");
 
-// 壓力測試二:
+// 效能測試二:
 console.time("trapezoid");
 for (let i = 1; i <= 10000; i++){
     sumFormula(10000);
 };
 console.timeEnd("trapezoid");
 
-// 壓力測試三:
+// 效能測試三:
 console.time("recursive");
 for (let i = 1; i <= 10000; i++){
     sumRecursive(10000);
 };
 console.timeEnd("recursive");
 
-// 壓力測試四:
+// 效能測試四:
 console.time("reducer");
 for (let i = 1; i <= 10000; i++){
     sumReducer(10000);
 };
 console.timeEnd("reducer");
+
