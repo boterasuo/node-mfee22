@@ -7,6 +7,7 @@ let doWork = function (job, timer, callback) {
     }, timer);
 };
 
+
 // 刷牙 --> 吃早餐 --> 寫功課
 let dt = new Date();
 console.log(`Start ${dt.toISOString()}`);
