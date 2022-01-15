@@ -14,12 +14,14 @@
       var asyncBtn = document.getElementById("asyncBtn");
       asyncBtn.addEventListener("click", function () {
         responseDom.innerText = "開始「非」同步請求";
-      $.ajax("http://34.221.173.92:3000/data", {method: "GET"})
+      $.ajax("http://34.221.173.9:3000/data", {method: "GET"})
         .done((order) => {
             console.log(order)
         })
         .fail((xhr, status) => {
+            console.log(`發生錯誤 ${status}`);
             console.error(`發生錯誤 ${status}`);
+            console.log(xhr);
         })
         
       });

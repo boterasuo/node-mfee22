@@ -4,14 +4,15 @@ const { readFile } = require("fs/promises");
 
 
   (async() => {
-    try {
-      let result = await readFile("stock.txt", "utf-8"); 
-      console.log(result);
       try {
-        let stockNo = result;
-        let queryDate = "20220115"
-  
-        // TODO: 從 stock.txt 中讀出檔案代碼
+        let stockNo = await readFile("stock.txt", "utf-8");
+        let date = new Date, year = date.getFullYear(), month = date.getMonth()+1, day = date.getDate();
+        if (month < 10) {
+          month = `0${month}`
+        }
+        let today = `${year}${month}${day}`;
+        // console.log(today); 
+        let queryDate = today // TODO: 自動用今天的日期
   
         let response = await axios.get("https://www.twse.com.tw/exchangeReport/STOCK_DAY", {
           // 這裡可以放一些設定
@@ -28,9 +29,7 @@ const { readFile } = require("fs/promises");
         console.error(err);
   
       }
-    } catch (err) {
-      console.error(err);
-    }
+
 
 
 
